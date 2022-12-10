@@ -4,7 +4,8 @@ import Staff.Staff;
 import Staff.FindBestPerformer2;
 //import Staff.Staff;
 import Student.StudentLogin;
-public class Main {
+public class Main
+{
     static boolean b = true;
     static Scanner s = new Scanner(System.in);
 
@@ -18,7 +19,7 @@ public class Main {
             do {
                 System.out.println(" \n\t****** Hearty Welcome Staff ******\n");
                 System.out.println("Please Select Any Option\n");
-                System.out.println(" 1) Add Student\n 2) Find Best Performer\n 3) View Students Average\n 4) View Students Having More Than 5 Co-curricular Activities\n 5) Exit\n");
+                System.out.println(" 1) Add Student\n 2) Overall Best Performer\n 3) View Students Average\n 4) View Students Having More Than 5 Co-curricular Activities\n 4) View Students With High Percentage\n 5) Exit\n");
                 int se = s.nextInt();
                 switch (se) {
                     case 1: {
@@ -37,7 +38,12 @@ public class Main {
                         FindBestPerformer2.displayCoCurricular();
                         break;
                     }
-                    case 5: {
+                    case 5:
+                    {
+                        FindBestPerformer2.Percentage();
+                        break;
+                    }
+                    case 6: {
                         b = false;
                         System.out.println("\t******** Thank You Staff Visit Again ********\n");
                     }
