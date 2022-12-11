@@ -83,7 +83,8 @@ public class StudentLogin {
             if (flag==false)
             {
                 System.out.println("Please Enter valid Details");
-                return false;
+                Entry();
+                //return false;
             }
         }
         catch (Exception e)

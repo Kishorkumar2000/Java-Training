@@ -19,22 +19,26 @@ public class Main
             do {
                 System.out.println(" \n\t****** Hearty Welcome Staff ******\n");
                 System.out.println("Please Select Any Option\n");
-                System.out.println(" 1) Add Student\n 2) Overall Best Performer\n 3) View Students Average\n 4) View Students Having More Than 5 Co-curricular Activities\n 4) View Students With High Percentage\n 5) Exit\n");
+                System.out.println(" 1) Add Student\n 2) Overall Best Performer\n 3) View Students Average\n 4) View Students Having More Than 5 Co-curricular Activities\n 5) View Students With High Percentage\n 6) Exit\n");
                 int se = s.nextInt();
                 switch (se) {
-                    case 1: {
+                    case 1:
+                    {
                         Staff.StaffMethod();
                         break;
                     }
-                    case 2: {
+                    case 2:
+                    {
                         FindBestPerformer2.BestPerformer();
                         break;
                     }
-                    case 3: {
+                    case 3:
+                    {
                         FindBestPerformer2.BestPerformers();
                         break;
                     }
-                    case 4: {
+                    case 4:
+                    {
                         FindBestPerformer2.displayCoCurricular();
                         break;
                     }
@@ -43,14 +47,16 @@ public class Main
                         FindBestPerformer2.Percentage();
                         break;
                     }
-                    case 6: {
+                    case 6:
+                    {
                         b = false;
                         System.out.println("\t******** Thank You Staff Visit Again ********\n");
                     }
                 }
             }
             while (b);
-        } else if (select == 2)
+        }
+        else if (select == 2)
         {
             if (StudentLogin.Entry())
             {
