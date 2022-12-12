@@ -175,7 +175,8 @@ public class FindBestPerformer2 {
     }
 
     public static void BestPerformer() {
-        String BestPerformer = "SELECT * FROM StudentAcademic ORDER BY Average Desc,Attendance_Percentage limit 3";
+       // String BestPerformer = "SELECT * FROM StudentAcademic ORDER BY Average Desc,Attendance_Percentage limit 3";
+        String BestPerformer = "select * from StudentAcademic  where No_Of_Cocurricular_Activities>5 order by Average desc, Attendance_Percentage limit 3";
         try {
             System.out.println("\n\t ************* Welcome to the Best Performer Identifier Portal *********\n");
             Connection conn = DriverManager.getConnection(DataBase_URL, User_Name, Password);
