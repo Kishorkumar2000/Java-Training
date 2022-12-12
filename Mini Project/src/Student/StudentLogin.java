@@ -12,7 +12,7 @@ public class StudentLogin {
 
     public static void StudentLogin1() throws SQLException {
         try {
-            String SHOW_SQL = "Select * From StudentProfile ";
+            String SHOW_SQL = "Select * From StudentProfile";
             String DataBase_URL = "jdbc:mysql://localhost:3306/School";
             String User_Name = "root";
             String Password = "28July2000($)";
@@ -24,6 +24,8 @@ public class StudentLogin {
             Date_Of_Birth = s.next();
             System.out.println("Please Enter Your Roll_No");
             Roll_No = s.nextInt();
+            PreparedStatement stmt1 = conn.prepareStatement("Select * From StudentProfile where Roll_No=?");
+            stmt1.setInt(1,Roll_No);
             while (rs.next())
             {
                 if (Date_Of_Birth.equals(rs.getDate("Date_Of_Birth").toString()))
@@ -37,7 +39,8 @@ public class StudentLogin {
                         System.out.println("Father's Name: " + rs.getString("Fathers_Name"));
                         System.out.println("Mother's Name :" + rs.getString("Mothers_Name"));
                         System.out.println("Contact Number :" + rs.getString("Contact_Number"));
-                    } else {
+                    }
+                    else {
                         System.out.println("Enter the valid Details");
                     }
                     // System.out.println(rs.getDate("Date_Of_Birth"));
@@ -73,7 +76,8 @@ public class StudentLogin {
             {
                 if (Date_Of_Birth.equals(rs.getDate("Date_Of_Birth").toString()))
                 {
-                    if (Roll_No == rs.getInt("Roll_No")) {
+                    if (Roll_No == rs.getInt("Roll_No"))
+                    {
                         System.out.println("Congratulation You are Now Logged In Successfully");
                         flag= true;
                         return true;

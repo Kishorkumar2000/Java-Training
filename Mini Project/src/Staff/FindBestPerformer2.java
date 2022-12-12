@@ -148,6 +148,8 @@ public class FindBestPerformer2 {
                     liked = false;
                     System.out.println("******** Hope You Got The Average For all the Students ********");
                 }
+                default:
+                    System.out.println("Invalid Input");
             }
         }
         while (liked);

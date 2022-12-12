@@ -19,7 +19,7 @@ public class Main
             do {
                 System.out.println(" \n\t****** Hearty Welcome Staff ******\n");
                 System.out.println("Please Select Any Option\n");
-                System.out.println(" 1) Add Student\n 2) Overall Best Performer\n 3) View Students Average\n 4) View Students Having More Than 5 Co-curricular Activities\n 5) View Students With High Percentage\n 6) Exit\n");
+                System.out.println(" 1) Add Student\n 2) Overall Best Performer\n 3) View Students Average\n 4) View Students Having More Than 5 Co-curricular Activities\n 5) View Students With High Percentage\n 6) Update Student\n 7) Delete The Student\n 8) Exit\n");
                 int se = s.nextInt();
                 switch (se) {
                     case 1:
@@ -49,9 +49,22 @@ public class Main
                     }
                     case 6:
                     {
+                        Staff.staffUpdate();
+                        break;
+                    }
+                    case 7:
+                    {
+                        Staff.deleteStudent();
+                        break;
+                    }
+                    case 8:
+                    {
                         b = false;
                         System.out.println("\t******** Thank You Staff Visit Again ********\n");
+                        break;
                     }
+                    default:
+                        System.out.println("Invalid Input");
                 }
             }
             while (b);
@@ -65,20 +78,24 @@ public class Main
                 {
                     System.out.println(" \n\t ******** Welcome Beloved Student *******\n");
                     System.out.println("Please Select Any Option Shown Below\n");
-                    System.out.println(" 1) Show My Details\n 2) Exit\n");
+                    System.out.println(" 1) Show My Details\n");
                     int se1 = s.nextInt();
                     switch (se1)
                     {
                         case 1:
                         {
                             StudentLogin.StudentLogin1();
+                            b = false;
                             break;
                         }
-                        case 2:
-                        {
-                            b = false;
-                            System.out.println("\t ****** Hope You Had a Good Experience ******\n");
-                        }
+//                        case 2:
+//                        {
+//                            b = false;
+//                            System.out.println("\t ****** Hope You Had a Good Experience ******\n");
+//                            break;
+//                        }
+                        default:
+                            System.out.println("Invalid Input");
                     }
                 }
                 while (b);

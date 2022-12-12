@@ -7,11 +7,12 @@ import java.sql.Statement;
 import java.util.Scanner;
 public class Staff {
     static Scanner s = new Scanner(System.in);
+    static String DataBase_URL = "jdbc:mysql://localhost:3306/School";
+    static String User_Name = "root";
+    static String Password = "28July2000($)";
 
     public static void StaffMethod() {
-        String DataBase_URL = "jdbc:mysql://localhost:3306/School";
-        String User_Name = "root";
-        String Password = "28July2000($)";
+
         System.out.println("\t ******* Welcome to the Staff Portal ******** \t\n");
         System.out.println("Please Enter the Name of the Student That You Need To Add In the Student Portal");
         String Name = s.nextLine();
@@ -57,7 +58,76 @@ public class Staff {
             System.out.println(e);
         }
     }
+
+    public static void staffUpdate()
+    {
+        System.out.println("\t ******* Welcome to the Staff Update Portal ******** \t\n");
+        System.out.println("Enter the Roll Number for the Student That You Want To Update");
+        int Roll_No = s.nextInt();
+        System.out.println("Please Enter the Name of the Student That You Need To Update In the Student Portal");
+        String Name = s.next();
+        System.out.println("Enter The Age Of The Student");
+        int Age = s.nextInt();
+        System.out.println("Enter The Date Of Birth Of the Student");
+        String DateOfBirth = s.next();
+        System.out.println("Enter The Students Joining Date");
+        String Date_Of_Joining = s.next();
+        s.nextLine();
+        System.out.println("Enter the Students Address");
+        String Address = s.nextLine();
+        System.out.println("Enter The Student Father's Name");
+        String Fathers_Name = s.next();
+        System.out.println("Enter The Student Mother's Name");
+        String Mothers_Name = s.next();
+        System.out.println("Enter The Students Contact Number");
+        long Contact_Number = s.nextLong();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DataBase_URL, User_Name, Password);
+            System.out.println(conn);
+            Statement s = conn.createStatement();
+            PreparedStatement stmt = conn.prepareStatement("UPDATE StudentProfile SET Name=?, Age=?, Date_Of_Birth=?, Date_Of_Joining=?, Address=?, Fathers_Name=?, Mothers_Name=?, Contact_Number=? WHERE Roll_No= ?");
+            stmt.setInt(9,Roll_No );
+            stmt.setString(1, Name);
+            stmt.setInt(2, Age);
+            stmt.setString(3, DateOfBirth);
+            stmt.setString(4, Date_Of_Joining);
+            stmt.setString(5, Address);
+            stmt.setString(6, Fathers_Name);
+            stmt.setString(7, Mothers_Name);
+            stmt.setLong(8, Contact_Number);
+            int i = stmt.executeUpdate();
+            System.out.println(i);
+        } catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
+    public static void deleteStudent()
+    {
+        System.out.println("\t ******* Welcome to the Staff Delete Portal ******** \t\n");
+        System.out.println("Enter the Roll No Of The Student That You Want Remove From The Data");
+        int Roll_No = s.nextInt();
+        try
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(DataBase_URL, User_Name, Password);
+            System.out.println(conn);
+            Statement s = conn.createStatement();
+            PreparedStatement stmt = conn.prepareStatement("DELETE FROM StudentProfile WHERE Roll_No=?");
+            stmt.setInt(1,Roll_No);
+            int i = stmt.executeUpdate();
+            System.out.println(i);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
 }
+
+
 
 
 
@@ -123,3 +193,4 @@ public class Staff {
 //            }
 //        }
 //}
+//
